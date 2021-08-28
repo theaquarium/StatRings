@@ -1,0 +1,167 @@
+.background {
+  viewport-fill: black;
+}
+
+#Affirmation {
+  x: 50;
+  y: 123;
+  width: 100%-100;
+  fill: #bbbbbb;
+  font-family: System-Regular;
+  font-size: 19;
+  text-anchor: middle;
+  text-length: 100;
+  display-align: before;
+  rows: 2;
+}
+
+.Clock-text {
+  font-size: 115;
+  fill: white;
+  text-anchor: middle;
+  y: 140;
+  text-length: 4;
+}
+
+#Clock-hours {
+  font-family: System-Light;
+  x: 50%-73;
+}
+
+#Clock-colon {
+  font-family: System-Regular;
+  x: 50%;
+  y: 130;
+}
+
+#Clock-minutes {
+  font-family: System-Bold;
+  x: 50%+73;
+}
+
+#AMPM-indicator {
+  font-family: System-Light;
+  font-size: 24;
+  fill: white;
+  text-anchor: middle;
+  text-length: 4;
+  
+  x: 100%-22;
+  y: 140-22;
+}
+
+#AMPM-indicator-M {
+  font-family: System-Light;
+  font-size: 24;
+  fill: white;
+  text-anchor: middle;
+  text-length: 4;
+  
+  x: 100%-22;
+  y: 140;
+}
+
+#Date {
+  fill: white;
+  font-family: System-Bold;
+  font-size: 24;
+  y: 40;
+  x: 48;
+  text-length: 16;
+}
+
+#Battery-icon {
+  y: 14;
+  x: 205;
+  opacity: 1;
+  width: 36;
+  height: 36;
+}
+
+#Battery-text {
+  font-family: System-Regular;
+  font-size: 24;
+  x: $+5;
+  y: 40;
+  text-length: 8;
+  text-anchor: start;
+}
+
+#Heart-icon {
+  y: 100%-96-26+2;
+  x: 100%-86-14;
+  opacity: 1;
+  width: 28;
+  height: 28;
+  fill: fb-magenta;
+}
+
+#Heart-text {
+  font-family: System-Bold;
+  font-size: 24;
+  x: 100%-86;
+  y: 100%-96+28-2;
+  text-length: 8;
+  text-anchor: middle;
+  fill: #ffffff;
+}
+
+.Stat-card {
+  fill: #222222;
+  x: 28;
+  width: 130;
+  height: 45;
+  opacity: 1;
+}
+
+.Stat-card-icon {
+  x: 33;
+  opacity: 1;
+  width: 30;
+  height: 30;
+}
+
+.Stat-card-text {
+  font-family: System-Bold;
+  font-size: 30;
+  x: $+5;
+  text-length: 8;
+  text-anchor: start;
+  fill: #ffffff;
+}
+
+#Stat-0 {
+  y: 100%-170;
+}
+
+#Stat-0-icon {
+  y: 100%-170+8;
+}
+
+#Stat-0-text {
+  y: 100%-170+45-12;
+}
+
+#Stat-1 {
+  y: 100%-170+50;
+}
+
+#Stat-1-icon {
+  y: 100%-170+8+50;
+}
+
+#Stat-1-text {
+  y: 100%-170+45-12+50;
+}
+
+#Stat-2 {
+  y: 100%-170+100;
+}
+
+#Stat-2-icon {
+  y: 100%-170+8+100;
+}
+
+#Stat-2-text {
+  y: 100%-170+45-12+100;
+}

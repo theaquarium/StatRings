@@ -1,0 +1,66 @@
+<svg class="background">
+  <defs>
+    <symbol id="rrect">
+      <rect x="5" y="5" width="100%-10" height="100%-10" />
+      
+      <rect x="5" y="0" width="100%-10" height="5" />
+      <rect x="5" y="100%-5" width="100%-10" height="5" />
+      <rect x="0" y="5" width="5" height="100%-10" />
+      <rect x="100%-5" y="5" width="5" height="100%-10" />
+      
+      <circle r="5" cx="5" cy="5" />
+      <circle r="5" cx="100%-5" cy="5" />
+      <circle r="5" cx="5" cy="100%-5" />
+      <circle r="5" cx="100%-5" cy="100%-5" />
+    </symbol>
+  </defs>
+  
+  <arc id="ring0-bg" start-angle="0" sweep-angle="360"/>
+  <arc id="ring0-fg" start-angle="0" />
+  <circle id="ring0-c1" />
+  <circle id="ring0-c2" />
+
+  <arc id="ring1-bg" start-angle="0" sweep-angle="360" />
+  <arc id="ring1-fg" start-angle="0" />
+  <circle id="ring1-c1" />
+  <circle id="ring1-c2" />
+
+  <arc id="ring2-bg" start-angle="0" sweep-angle="360" />
+  <arc id="ring2-fg" start-angle="0" />
+  <circle id="ring2-c1" />
+  <circle id="ring2-c2" />
+  
+  <image id="ring0-icon" href="icons/steps.png" />
+  <image id="ring1-icon" href="icons/distance.png" />
+  <image id="ring2-icon" href="icons/calories.png" />
+ 
+  <textarea id="Affirmation" />
+  
+  <text id="Clock-hours" class="Clock-text" />
+  <text id="Clock-colon" class="Clock-text">:</text>
+  <text id="Clock-minutes" class="Clock-text" />
+  
+  <text id="AMPM-indicator">A</text>
+  <text id="AMPM-indicator-M">M</text>
+  
+  <text id="Date" />
+
+  <image id="Battery-icon" />
+  <text id="Battery-text" />
+  
+  <image id="Heart-icon" href="icons/heart.png" />
+  <text id="Heart-text">-</text>
+  
+  <use id="Stat-0" class="Stat-card" href="#rrect" />
+  <use id="Stat-1" class="Stat-card" href="#rrect" />
+  <use id="Stat-2" class="Stat-card" href="#rrect" />
+  
+  <image id="Stat-0-icon" class="Stat-card-icon" href="icons/steps.png" />
+  <text id="Stat-0-text" class="Stat-card-text">-</text>
+  
+  <image id="Stat-1-icon" class="Stat-card-icon" href="icons/distance.png" />
+  <text id="Stat-1-text" class="Stat-card-text">-</text>
+  
+  <image id="Stat-2-icon" class="Stat-card-icon" href="icons/move.png" />
+  <text id="Stat-2-text" class="Stat-card-text">-</text>
+</svg>

@@ -1,0 +1,26 @@
+{
+  "devDependencies": {
+    "@fitbit/sdk": "~5.0.0"
+  },
+  "fitbit": {
+    "appUUID": "4e26dc82-4a54-4699-88f5-447f2284ab10",
+    "appType": "clockface",
+    "appDisplayName": "StatRings",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "",
+    "requestedPermissions": [
+      "access_activity",
+      "access_heart_rate"
+    ],
+    "buildTargets": [
+      "atlas",
+      "vulcan"
+    ],
+    "i18n": {
+      "en-US": {
+        "name": "StatRings"
+      }
+    },
+    "defaultLanguage": "en-US"
+  }
+}
