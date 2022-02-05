@@ -26,7 +26,7 @@ body.addEventListener('reading', () => {
     hrm.start();
   }
 });
-display.addEventListener("change", () => {
+display.addEventListener('change', () => {
   // Automatically stop the sensor when the screen is off to conserve battery
   if (display.on && !display.aodActive && useHr) {
     hrm.start();

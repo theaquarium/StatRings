@@ -9,6 +9,10 @@ function Settings(props) {
         <Toggle
           settingsKey="use24h"
           label="Use 24 Hour Time"
+          onChange={() => {
+            console.log('setting timeset');
+            props.settingsStorage.setItem("timeSet", "true");
+          }}
         />
         {
           props.settings.use24h === "true" ? null :
@@ -31,6 +35,9 @@ function Settings(props) {
         <Toggle
           settingsKey="useMetricDistance"
           label="Use Metric Distance Units (km)"
+          onChange={() => {
+            props.settingsStorage.setItem("distanceSet", "true");
+          }}
         />
         <Toggle
           settingsKey="useMetricEnergy"
@@ -164,6 +171,20 @@ function Settings(props) {
             { name: "Floors", value: "floors" },
             { name: "Active Zone Minutes", value: "azm" },
           ]}
+        />
+      </Section>
+      
+      <Section
+        title={
+          <Text bold align="center">Reset</Text>
+        }
+      >
+        <Button
+          label="Reset Settings to Defaults"
+          onClick={() => {
+            props.settingsStorage.clear();
+            // props.settingsStorage.setItem("wasReset", "true");
+          }}
         />
       </Section>
     </Page>

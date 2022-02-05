@@ -1,11 +1,13 @@
 import clock from 'clock';
 import { setupRings } from './rings';
 import { setupCards } from './cards';
-import { setupAffirmations } from './affirmations';
 import { mainFaceUpdater, clockUpdater } from './faceUpdater';
 import { initializeSettings } from './settings';
 import { initializeHr } from './hr';
 import { initializeAod } from './aod';
+import { readSettings } from './saveSettings';
+
+readSettings();
 
 initializeSettings(() => {
   clockUpdater(new Date());

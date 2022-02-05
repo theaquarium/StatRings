@@ -1,23 +1,14 @@
 import { settingsStorage } from "settings";
+import defaultSettings from '../common/defaultSettings';
 
 // Actual settings storage
-const settings = {
-  use24h: false,
-  showAmpm: false,
-  showWeekday: true,
-  showAffirmations: true,
-  useMetricDistance: false,
-  useMetricEnergy: false,
-  name: null,
-  showHr: true,
-  showStatsCardBg: true,
-  card0Stat: "steps",
-  card1Stat: "distance",
-  card2Stat: "calories",
-  ring0Stat: "steps",
-  ring1Stat: "distance",
-  ring2Stat: "calories",
-};
+let settings = defaultSettings;
+
+// Unit preferences - start with defaults
+let unitPrefs = {
+  use24h: settings.use24h,
+  useMetricDistance: settings.useMetricDistance,
+}
 
 const settingsTypes = {
   use24h: "bool",
@@ -47,9 +38,12 @@ const statOptions = [
 ];
 
 export function initializeSettings() {
+  // copy
+  settings = JSON.parse(JSON.stringify(defaultSettings));
+  
   Object.keys(settings).forEach((key) => {
     // Put already stored values into the companion's settings cache
-    const readVal = settingsStorage.getItem(key);4
+    const readVal = settingsStorage.getItem(key);
     if (readVal !== null) {
       changeValue(key, readVal);
       return;
@@ -105,4 +99,23 @@ export function changeValue(key, value) {
   
 export function getSettings() {
   return settings;
+}
+
+export function setUnitPrefs(prefs) {
+  unitPrefs = prefs;
+}
+  
+export function loadUnitPrefs() {
+  console.log('getting timeset', settingsStorage.getItem('timeSet'))
+  if (settingsStorage.getItem('timeSet') !== "true") {
+    console.log('about to save', unitPrefs.use24h ? 'true' : 'false');
+    const value = unitPrefs.use24h ? 'true' : 'false';
+    settingsStorage.setItem('use24h', value);
+    changeValue('use24h', value);
+  }
+  if (settingsStorage.getItem('distanceSet') !== "true") {
+    const value = unitPrefs.useMetricDistance ? 'true' : 'false';
+    settingsStorage.setItem('useMetricDistance', value);
+    changeValue('useMetricDistance', value);
+  }
 }
