@@ -33,7 +33,8 @@ export function getStatValue(stat) {
 export function getGoalValue(stat) {
   if (!appbit.permissions.granted("access_activity")) {
      console.log("Activity permission blocked");
-     return 0;
+     // the goal value returns one so it doesn't divide by 0
+     return 1;
   }
   switch (stat) {
     case "steps":

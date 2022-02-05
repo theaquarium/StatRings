@@ -106,9 +106,7 @@ export function setUnitPrefs(prefs) {
 }
   
 export function loadUnitPrefs() {
-  console.log('getting timeset', settingsStorage.getItem('timeSet'))
   if (settingsStorage.getItem('timeSet') !== "true") {
-    console.log('about to save', unitPrefs.use24h ? 'true' : 'false');
     const value = unitPrefs.use24h ? 'true' : 'false';
     settingsStorage.setItem('use24h', value);
     changeValue('use24h', value);

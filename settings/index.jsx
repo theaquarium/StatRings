@@ -10,7 +10,6 @@ function Settings(props) {
           settingsKey="use24h"
           label="Use 24 Hour Time"
           onChange={() => {
-            console.log('setting timeset');
             props.settingsStorage.setItem("timeSet", "true");
           }}
         />

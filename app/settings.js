@@ -25,7 +25,6 @@ export function initializeSettings(changeCb) {
   messaging.peerSocket.addEventListener("message", (evt) => {
     // send prefs if asked
     if (evt.data.type === 'prefsRequest') {
-      console.log('request received')
       // If we have a MessageSocket, send the data to the device
       if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
         messaging.peerSocket.send({
@@ -38,10 +37,13 @@ export function initializeSettings(changeCb) {
       return;
     }
     
-    console.log('new settings received ' + evt.data.use24h);
-    
-    settings = evt.data;
+    setSettings(evt.data);
     writeSettings();
-    changeCallback();
   });
+  messaging.peerSocket.addEventListener("error", () => {
+    console.log('Watch: Peersocket error')
+  });
+  messaging.peerSocket.addEventListener("close", () => {
+    console.log('Watch: Peersocket closed')
+  })
 };
