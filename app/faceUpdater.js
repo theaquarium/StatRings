@@ -15,6 +15,7 @@ const ampmM = document.getElementById('AMPM-indicator-M');
 const batteryIcon = document.getElementById('Battery-icon');
 const batteryText = document.getElementById('Battery-text');
 const dateText = document.getElementById('Date');
+const dateMiddleText = document.getElementById('DateMiddle');
 
 // Day and month names
 const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -49,34 +50,53 @@ export function clockUpdater(today) {
   const mins = util.monoDigits(util.zeroPad(today.getMinutes()));
   clockMinutes.text = mins;
   
-  if (settings.showWeekday) {
-    dateText.text = `${dayNames[today.getDay()]}, ${monthNames[today.getMonth()]} ${today.getDate()}`;
-  } else {
-    dateText.text = `${monthNames[today.getMonth()]} ${today.getDate()}`;
+  let dateString = "";
+  if (settings.showDate) {
+    if (settings.showWeekday) {
+      dateString = `${dayNames[today.getDay()]}, ${monthNames[today.getMonth()]} ${today.getDate()}`;
+    } else {
+      dateString = `${monthNames[today.getMonth()]} ${today.getDate()}`;
+    }
   }
+  
+  dateText.text = dateString;
+  dateMiddleText.text = dateString;
 }
 
 export function mainFaceUpdater() {
-  // Update battery info
-  if (charger.connected) {
-    batteryText.style.fill = 'fb-slate';
-    batteryIcon.style.fill = 'fb-slate';
-    batteryIcon.href = 'icons/battery-charging.png';
-  } else if (battery.chargeLevel < 20) {
-    batteryText.style.fill = 'fb-red';
-    batteryIcon.style.fill = 'fb-red';
-    batteryIcon.href = 'icons/battery-dead.png';
-  } else if (battery.chargeLevel < 40) {
-    batteryText.style.fill = 'fb-peach';
-    batteryIcon.style.fill = 'fb-peach';
-    batteryIcon.href = 'icons/battery-half.png';
-  } else {
-    batteryText.style.fill = 'fb-mint';
-    batteryIcon.style.fill = 'fb-mint';
-    batteryIcon.href = 'icons/battery-full.png';
-  }
+  const settings = getSettings();
   
-  batteryText.text = `${battery.chargeLevel}%`;
+  if (settings.showBattery) {
+    // Update battery info
+    if (charger.connected) {
+      batteryText.style.fill = 'fb-slate';
+      batteryIcon.style.fill = 'fb-slate';
+      batteryIcon.href = 'icons/battery-charging.png';
+    } else if (battery.chargeLevel < 20) {
+      batteryText.style.fill = 'fb-red';
+      batteryIcon.style.fill = 'fb-red';
+      batteryIcon.href = 'icons/battery-dead.png';
+    } else if (battery.chargeLevel < 40) {
+      batteryText.style.fill = 'fb-peach';
+      batteryIcon.style.fill = 'fb-peach';
+      batteryIcon.href = 'icons/battery-half.png';
+    } else {
+      batteryText.style.fill = 'fb-mint';
+      batteryIcon.style.fill = 'fb-mint';
+      batteryIcon.href = 'icons/battery-full.png';
+    }
+
+    batteryText.text = `${battery.chargeLevel}%`;
+    
+    dateText.style.display = 'inline';
+    dateMiddleText.style.display = 'none';
+  } else {
+    batteryText.text = '';
+    batteryIcon.href = '';
+    
+    dateText.style.display = 'none';
+    dateMiddleText.style.display = 'inline';
+  }
   
   updateRings();
   updateCards();

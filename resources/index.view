@@ -44,6 +44,7 @@
   <text id="AMPM-indicator-M">M</text>
   
   <text id="Date" />
+  <text id="DateMiddle" />
 
   <image id="Battery-icon" />
   <text id="Battery-text" />

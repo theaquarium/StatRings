@@ -70,6 +70,16 @@
   text-length: 16;
 }
 
+#DateMiddle {
+  fill: white;
+  font-family: System-Bold;
+  font-size: 24;
+  y: 40;
+  x: 50%;
+  text-anchor: middle;
+  text-length: 16;
+}
+
 #Battery-icon {
   y: 14;
   x: 205;

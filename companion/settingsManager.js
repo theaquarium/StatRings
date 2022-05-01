@@ -13,7 +13,9 @@ let unitPrefs = {
 const settingsTypes = {
   use24h: "bool",
   showAmpm: "bool",
+  showDate: "bool",
   showWeekday: "bool",
+  showBattery: "bool",
   showAffirmations: "bool",
   useMetricDistance: "bool",
   useMetricEnergy: "bool",
@@ -106,6 +108,7 @@ export function setUnitPrefs(prefs) {
 }
   
 export function loadUnitPrefs() {
+  // only use prefs if the user hasn't explicitly set them
   if (settingsStorage.getItem('timeSet') !== "true") {
     const value = unitPrefs.use24h ? 'true' : 'false';
     settingsStorage.setItem('use24h', value);

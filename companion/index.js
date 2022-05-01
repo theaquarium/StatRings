@@ -28,7 +28,9 @@ messaging.peerSocket.addEventListener("open", (evt) => {
 });
 
 messaging.peerSocket.addEventListener("message", (evt) => {
+  // watch sends companion preferences
   if (evt.data.type === 'unitPrefs') {
+    // set unit preferences to settings manager
     setUnitPrefs({
       use24h: evt.data.time === '24h',
       useMetricDistance: evt.data.distance === 'metric',

@@ -1,7 +1,9 @@
 export default {
   use24h: false,
   showAmpm: true,
+  showDate: true,
   showWeekday: true,
+  showBattery: true,
   showAffirmations: true,
   useMetricDistance: false,
   useMetricEnergy: false,

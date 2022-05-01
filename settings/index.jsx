@@ -21,8 +21,28 @@ function Settings(props) {
             />
         }
         <Toggle
-          settingsKey="showWeekday"
-          label="Show Weekday"
+          settingsKey="showDate"
+          label="Show Date"
+        />
+        {
+          props.settings.showDate === "true" ?
+            <Toggle
+              settingsKey="showWeekday"
+              label="Show Weekday"
+            />
+            : null
+        }
+        
+      </Section>
+      
+      <Section
+        title={
+          <Text bold align="center">Device</Text>
+        }
+      >
+        <Toggle
+          settingsKey="showBattery"
+          label="Show Battery Percentage"
         />
       </Section>
       
